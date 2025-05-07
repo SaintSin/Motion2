@@ -1,0 +1,33 @@
+---
+import Link from "@components/page/Link.astro";
+// Not using a list, as Google sites don't seem to use it. And being sheep we follow Google
+
+const { pathname } = new URL(Astro.url.pathname, Astro.site);
+const links = [
+  { linkText: "Home", link: "/" },
+  { linkText: "About", link: "/about/" },
+  { linkText: "Contact", link: "/" },
+];
+---
+
+<div class="nav-links">
+  {
+    links.map((link) => (
+      <Link
+        class={pathname == link.link ? "active--exact" : ""}
+        href={link.link}
+      >
+        {link.linkText}
+      </Link>
+    ))
+  }
+</div>
+
+<style>
+  .nav-links {
+    a {
+      text-decoration: solid underline orange 4px;
+      padding-inline-end: var(--gap);
+    }
+  }
+</style>

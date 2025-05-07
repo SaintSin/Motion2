@@ -1,0 +1,24 @@
+{
+  "name": "astroinitial",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "prettier": "exec prettier . --write"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.3.1",
+    "astro": "^5.7.11",
+    "open-props": "^1.7.15",
+    "sass": "^1.87.0",
+    "sharp": "^0.34.1"
+  },
+  "devDependencies": {
+    "postcss-jit-props": "^1.0.16",
+    "prettier": "3.5.3",
+    "prettier-plugin-astro": "0.14.1"
+  }
+}

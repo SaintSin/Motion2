@@ -1,0 +1,39 @@
+---
+import { ClientRouter } from "astro:transitions";
+
+const { metaData } = Astro.props;
+const {
+  title,
+  description,
+  imageOG = "generic-social-1200x630.png",
+  altOG = "Social Media Card",
+} = metaData;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+import "@styles/style.css";
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>{metaData.title}</title>
+  <link rel="canonical" href={canonicalURL} />
+  <meta name="description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={Astro.site + "images/social/" + imageOG} />
+  <meta property="og:image:alt" content={altOG} />
+  <meta
+    property="og:logo"
+    content={Astro.site + "images/social/social-logo-1200px.png"}
+  />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+  <ClientRouter />
+</head>
