@@ -1,5 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
+import { Head } from "astro-capo";
 
 const { metaData } = Astro.props;
 const {
@@ -13,7 +15,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 import "@styles/style.css";
 ---
 
-<head>
+<Head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
   <title>{metaData.title}</title>
@@ -35,5 +37,7 @@ import "@styles/style.css";
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+  <Font cssVariable="--font-roboto" preload />
+
   <ClientRouter />
-</head>
+</Head>

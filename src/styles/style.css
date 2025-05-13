@@ -10,7 +10,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
-  font-family: var(--font-system-ui);
+  font-family: var(--font-roboto);
 }
 
 .content {

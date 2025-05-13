@@ -1,11 +1,11 @@
 ---
-import { Image } from "astro:assets";
+import { Image, Picture } from "astro:assets";
 
 import Layout from "@layouts/BaseLayout.astro";
 
 import image1 from "@images/panda-01.jpg";
 const meta = {
-  title: "Welcome to Astro",
+  title: "Welcome to  an Astro Starter",
   description: "The metadescription",
   imageOG: "generic-social-1200x630.png",
   altOG: "Alt text for OG image",
@@ -28,6 +28,10 @@ const meta = {
       <li>Minimal Starter</li>
       <li>Experimental Edition</li>
       <li>Component library</li>
+    </ul>
+    <ul>
+      <li>Experimental fonts</li>
+      <li>Experimental responsive images</li>
     </ul>
     <ol>
       <li>Minimal Starter<br /></li>
@@ -53,17 +57,60 @@ const meta = {
       </div>
     </section>
     <section class="flow">
-      <h2>Thirds</h2>
+      <h2>Thirds Responsive Images</h2>
       <div class="grid" data-layout="thirds">
-        <Image src={image1} alt="" quality={50} />
-        <Image src={image1} alt="" quality={50} />
-        <Image src={image1} alt="" quality={50} />
+        <div>
+          <p>Full width</p>
+          <Image src={image1} alt="" quality={50} layout="full-width" />
+        </div>
+        <div>
+          <p>Responsive</p>
+          <Picture
+            src={image1}
+            alt=""
+            quality={50}
+            layout="responsive"
+            width={800}
+            height={600}
+            formats={["avif", "webp", "jpeg"]}
+          />
+        </div>
+        <div>
+          <p>Responsive 800 x 800</p>
+          <Image
+            src={image1}
+            alt=""
+            quality={50}
+            layout="responsive"
+            width={800}
+            height={800}
+          />
+        </div>
+        <div>
+          <p>Constrained</p>
+          <Image
+            src={image1}
+            alt=""
+            quality={50}
+            layout="constrained"
+            width={1200}
+          />
+        </div>
       </div>
       <div class="grid" data-layout="thirds">
-        <Image src={image1} alt="" quality={50} class="span-2" />
+        <Picture
+          src={image1}
+          alt=""
+          quality={50}
+          class="span-2"
+          layout="full-width"
+        />
         <Image src={image1} alt="" quality={50} />
       </div>
     </section>
   </main>
-  <section class="content-grid"><p>Lorem</p></section>
+  <section class="content-grid">
+    <h2>Out of Main</h2>
+    <p>Lorem</p>
+  </section>
 </Layout>
