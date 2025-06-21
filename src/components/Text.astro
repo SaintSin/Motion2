@@ -1,0 +1,99 @@
+---
+
+---
+
+<div class="txtZoom">
+  <h3>Motion Appends Class</h3>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nesciunt
+    eaque ea saepe sit ad quas, animi perferendis corrupti voluptas, consequatur
+    cumque eos. Voluptas consequuntur dolorum temporibus reiciendis, totam
+    quidem.
+  </p>
+  <h3>Second heading</h3>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nesciunt
+    eaque ea saepe sit ad quas, animi perferendis corrupti voluptas, consequatur
+    cumque eos. Voluptas consequuntur dolorum temporibus reiciendis, totam
+    quidem.
+  </p>
+  <h3>Third heading</h3>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nesciunt
+    eaque ea saepe sit ad quas, animi perferendis corrupti voluptas, consequatur
+    cumque eos. Voluptas consequuntur dolorum temporibus reiciendis, totam
+    quidem.
+  </p>
+</div>
+
+<script>
+  import { inView } from "motion";
+
+  // Function to initialize motion observers
+  function initMotionObservers() {
+    inView(
+      ".txtZoom h3",
+      (element, info) => {
+        // console.log("Element", element, " has entered the viewport");
+        element.classList.add("visible");
+
+        return () => {
+          element.classList.remove("visible");
+        };
+      },
+      {
+        // Only trigger once (don't remove class when leaving)
+        // amount: "some", // Trigger when any part is visible
+        margin: "-70px", // Trigger 100px before entering viewport
+      }
+    );
+
+    // Add other inView observers here
+    inView(".fade-in", (element) => {
+      element.classList.add("visible");
+    });
+  }
+
+  // Initialize on first load
+  document.addEventListener("DOMContentLoaded", initMotionObservers);
+
+  // Reinitialize after each Astro view transition
+  document.addEventListener("astro:page-load", initMotionObservers);
+
+  // Optional: Clean up before transitions (if needed)
+  document.addEventListener("astro:before-preparation", () => {
+    // Any cleanup logic if needed
+    console.log("Preparing for transition");
+  });
+
+  // Alternative approach: Using astro:after-swap for immediate DOM updates
+  document.addEventListener("astro:after-swap", () => {
+    // This fires immediately after the new page content is swapped in
+    // but before astro:page-load
+    initMotionObservers();
+  });
+</script>
+
+<style>
+  .txtZoom {
+    width: 100vw;
+    overflow-y: hidden;
+  }
+  .txtZoom p {
+    margin-block-end: 75vh;
+  }
+  .txtZoom h3 {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: all 0.6s ease;
+    font-size: var(--font-size-8);
+    font-weight: var(--font-weight-9);
+    font-family: var(--font-industrial);
+    color: var(--teal-7);
+  }
+
+  .txtZoom h3.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+</style>

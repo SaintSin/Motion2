@@ -16,8 +16,10 @@ export default defineConfig({
         cssVariable: "--font-roboto",
       },
     ],
-    responsiveImages: true,
   },
-  site: "http://localhost/",
+  image: {
+    responsiveStyles: true,
+  },
   integrations: [sitemap()],
+  site: "http://localhost/",
 });

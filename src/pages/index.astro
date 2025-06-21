@@ -10,11 +10,17 @@ const meta = {
   imageOG: "generic-social-1200x630.png",
   altOG: "Alt text for OG image",
 };
+
+import TextA from "@components/Text.astro";
+import Rule1 from "@components/Rule1.astro";
 ---
 
 <Layout metaData={meta}>
   <main class="wrapper flow">
     <h1>Start</h1>
+    <TextA />
+    <Rule1 />
+
     <h2>Check OG:Logo</h2>
     <p>
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero aut
@@ -39,7 +45,7 @@ const meta = {
       <li>Components Edition</li>
     </ol>
     <h2>Image</h2>
-    <Image src={image1} alt="" quality={50} />
+    <Image src={image1} alt="" quality={50} class="" />
 
     <section class="grid" data-layout="50-50">
       <div class="">
@@ -64,33 +70,24 @@ const meta = {
           <Image src={image1} alt="" quality={50} layout="full-width" />
         </div>
         <div>
-          <p>Responsive</p>
+          <p>Responsive Picture with multiple formats</p>
           <Picture
             src={image1}
-            alt=""
+            alt="X"
             quality={50}
-            layout="responsive"
             width={800}
-            height={600}
             formats={["avif", "webp", "jpeg"]}
           />
         </div>
         <div>
           <p>Responsive 800 x 800</p>
-          <Image
-            src={image1}
-            alt=""
-            quality={50}
-            layout="responsive"
-            width={800}
-            height={800}
-          />
+          <Image src={image1} alt="" quality={50} width={800} height={800} />
         </div>
         <div>
           <p>Constrained</p>
           <Image
             src={image1}
-            alt=""
+            alt="X"
             quality={50}
             layout="constrained"
             width={1200}
@@ -100,7 +97,7 @@ const meta = {
       <div class="grid" data-layout="thirds">
         <Picture
           src={image1}
-          alt=""
+          alt="X"
           quality={50}
           class="span-2"
           layout="full-width"
@@ -109,6 +106,17 @@ const meta = {
       </div>
     </section>
   </main>
+  <section>
+    <h2>Image tests</h2>
+    <p>Full-width picture</p>
+    <Picture
+      src={image1}
+      alt="X"
+      quality={50}
+      layout="full-width"
+      class="squircle"
+    />
+  </section>
   <section class="content-grid">
     <h2>Out of Main</h2>
     <p>Lorem</p>
