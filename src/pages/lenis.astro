@@ -16,8 +16,20 @@ import image1 from "@images/panda-01.jpg";
 ---
 
 <Layout metaData={meta}>
-  <div class="hero">
-    <Image src={image1} alt="Panda" quality={50} class="hero-image" />
+  <div class="parallax-container">
+    <div class="parallax-element grida head" data-speed="0.7">
+      <Image src={image1} layout="full-width" quality={40} alt="Lazy Cats" />
+      <div>
+        <h1 class="animate" id="animated-heading">
+          <div class="line">
+            <span>Pandas!</span>
+          </div>
+          <div class="line">
+            <span>So Hyperactive!</span>
+          </div>
+        </h1>
+      </div>
+    </div>
   </div>
   <main class="wrapper flow">
     <h1>Hero Image With Scroll Timeline</h1>
@@ -81,38 +93,55 @@ import image1 from "@images/panda-01.jpg";
 </Layout>
 
 <style>
-  .hero {
-    position: sticky;
-    top: 100px;
-    aspect-ratio: 1.82;
-    overflow: hidden;
+  .parallax-container {
+    outline: 1px solid red;
+    width: 100%;
+
+    position: relative;
+    height: 70vh; /* Make it taller to see more parallax effect */
   }
 
-  .hero-image {
-    animation: heroScale linear forwards;
-    animation-timeline: scroll(root block); /* Drive animation by root scroll */
-    animation-range: 0% 50%; /* Play over the first 50% of the root scroll */
-    z-index: 10;
-    width: 100%; /* Ensure image fills its container */
-    height: 100%; /* Ensure image fills its container */
-    object-fit: cover; /* Crop image to fit aspect ratio */
-  }
+  .parallax-element {
+    width: 100%;
 
-  @keyframes heroScale {
-    from {
-      scale: 1.2;
-    }
-    to {
-      scale: 1;
+    position: absolute;
+    will-change: transform;
+    height: 70vh;
+    img {
+      height: 70vh;
     }
   }
+  .grida {
+    display: grid;
+  }
+  .head {
+    grid-template-columns: 1;
+    grid-template-rows: 1;
+    grid-template-areas: "main";
+    img {
+      grid-area: main;
+    }
+    div {
+      grid-area: main;
+      h1 {
+        color: var(--jungle-7);
+        font-size: calc(var(--font-size-8) * 2);
+        padding: var(--size-8);
+        padding-top: calc(var(--size-8) * 10);
 
-  /* Fallback for browsers without scroll-timeline support */
-  @supports not (animation-timeline: scroll()) {
-    .hero-image {
-      /* Apply a standard animation if scroll-timeline isn't supported */
-      animation: heroScale 3s ease-in forwards;
-      animation-timeline: auto; /* Revert to default animation timeline */
+        .line {
+          display: block;
+          overflow: hidden; /* Hide the text that's below baseline */
+
+          /* Create inner element for the actual text */
+          span {
+            display: block;
+            /* Initial state - text starts below, fully opaque */
+            transform: translateY(100%);
+            opacity: 1;
+          }
+        }
+      }
     }
   }
 
@@ -132,3 +161,82 @@ import image1 from "@images/panda-01.jpg";
     }
   }
 </style>
+
+<script>
+  import Lenis from "lenis";
+  import { animate, inView } from "motion";
+
+  let lenis: Lenis | null = null;
+
+  function initLenis() {
+    if (lenis) return lenis; // don't re-init
+
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      syncTouch: true,
+    });
+
+    function raf(time: number) {
+      lenis?.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Handle parallax elements
+    lenis.on("scroll", ({ scroll }: { scroll: number }) => {
+      const parallaxElements = document.querySelectorAll("[data-speed]");
+
+      parallaxElements.forEach((element) => {
+        const speed = parseFloat((element as HTMLElement).dataset.speed || "1");
+        const yPos = scroll * speed;
+        (element as HTMLElement).style.transform = `translateY(${yPos}px)`;
+      });
+    });
+
+    return lenis;
+  }
+
+  function initAnimations() {
+    const heading = document.getElementById("animated-heading");
+
+    if (heading) {
+      const lines = heading.querySelectorAll(".line span");
+
+      // Use inView to trigger animation when heading becomes visible
+      inView(heading, () => {
+        // Animate each line's inner span separately with a stagger delay
+        lines.forEach((span, index) => {
+          animate(
+            span,
+            {
+              transform: "translateY(0%)",
+            },
+            {
+              duration: 0.8,
+              delay: index * 0.15, // Stagger each line by 150ms
+              easing: [0.25, 0.1, 0.25, 1],
+            }
+          );
+        });
+      });
+    }
+  }
+
+  function getLenis() {
+    return lenis;
+  }
+
+  // Initialize everything when the component loads
+  document.addEventListener("DOMContentLoaded", () => {
+    initLenis();
+    initAnimations();
+  });
+
+  // Clean up on page unload
+  window.addEventListener("beforeunload", () => {
+    lenis?.destroy();
+    lenis = null;
+  });
+</script>

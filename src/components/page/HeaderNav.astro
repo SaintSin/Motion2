@@ -7,6 +7,7 @@ const links = [
   { linkText: "Home", link: "/" },
   { linkText: "About", link: "/about/" },
   { linkText: "Hero", link: "/hero/" },
+  { linkText: "Lenis", link: "/lenis/" },
 
   { linkText: "Contact", link: "/" },
 ];
@@ -28,8 +29,14 @@ const links = [
 <style>
   .nav-links {
     a {
-      text-decoration: solid underline orange 4px;
-      padding-inline-end: var(--gap);
+      text-decoration: none;
+      margin-inline: var(--size-1);
+      padding: var(--size-1);
+    }
+    .active--exact {
+      background: var(--stone-8);
+      color: var(--stone-1);
+      border-radius: var(--radius-2);
     }
   }
 </style>
