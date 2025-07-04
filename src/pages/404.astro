@@ -13,5 +13,84 @@ const meta = {
   <main class="wrapper flow">
     <h1>404</h1>
     <p>Unable to find that page</p>
+    <a href="#" class="sliding-link green">Green Link</a>
   </main>
 </Layout>
+<style lang="scss">
+  // Variables
+  $link-color: #333;
+  $link-hover-color: #007bff;
+  $underline-height: 2px;
+  $animation-duration: 0.3s;
+  $animation-easing: ease;
+
+  // Color variants
+  $red-color: #dc3545;
+  $green-color: #28a745;
+  $purple-color: #6f42c1;
+
+  .sliding-link {
+    color: $link-color;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: $underline-height solid transparent;
+    position: relative;
+    overflow: hidden;
+    transition: color $animation-duration $animation-easing;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -$underline-height;
+      left: -100%;
+      width: 100%;
+      height: $underline-height;
+      background-color: $link-hover-color;
+      transition: left $animation-duration $animation-easing;
+    }
+
+    &:hover {
+      color: $link-hover-color;
+
+      &::before {
+        left: 0;
+      }
+    }
+
+    &:not(:hover)::before {
+      left: 100%;
+    }
+
+    // Color variants
+    &.red {
+      &::before {
+        background-color: $red-color;
+      }
+
+      &:hover {
+        color: $red-color;
+      }
+    }
+
+    &.green {
+      &::before {
+        background-color: $green-color;
+      }
+
+      &:hover {
+        color: $green-color;
+      }
+    }
+
+    &.purple {
+      &::before {
+        background-color: $purple-color;
+      }
+
+      &:hover {
+        color: $purple-color;
+      }
+    }
+  }
+</style>

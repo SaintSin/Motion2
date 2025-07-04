@@ -3,6 +3,8 @@ import { defineConfig, fontProviders } from "astro/config";
 
 import sitemap from "@astrojs/sitemap";
 
+import playformCompress from "@playform/compress";
+
 // https://astro.build/config
 export default defineConfig({
   experimental: {
@@ -20,6 +22,15 @@ export default defineConfig({
   image: {
     responsiveStyles: true,
   },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap(),
+    (await import("@playform/compress")).default({
+      CSS: true,
+      HTML: false,
+      Image: false,
+      JavaScript: true,
+      SVG: true,
+    }),
+  ],
   site: "http://localhost/",
 });

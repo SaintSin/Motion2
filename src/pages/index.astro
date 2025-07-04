@@ -19,6 +19,9 @@ import Skew from "@components/SkewZoom.astro";
 <Layout metaData={meta}>
   <main class="wrapper flow">
     <h1>Start</h1>
+    <a href="#" class="link-slide">Test Link</a>
+    <a href="#" class="sliding-link">Test Link</a>
+
     <TextA />
     <Rule1 />
     <Skew />
@@ -124,3 +127,75 @@ import Skew from "@components/SkewZoom.astro";
     <p>Lorem</p>
   </section>
 </Layout>
+<style>
+  .link-slide {
+    font-size: 3rem;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+  .link-slide::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    transition: width 0.3s ease;
+  }
+  ,
+  .link-slide:hover::after {
+    width: 100%;
+  }
+</style>
+<style>
+  /* Styling for the sliding link */
+  .sliding-link {
+    /* Define a CSS variable for the transition speed */
+    --transition-speed: 1.3s;
+
+    position: relative;
+    display: inline-block; /* Essential for containing the pseudo-elements */
+    color: #1a73e8; /* A nice blue color for the link */
+    text-decoration: none; /* No underline by default */
+    overflow: hidden; /* Hides the pseudo-elements until they slide into view */
+    padding-bottom: 4px; /* Space for the underline */
+    font-weight: 600;
+    font-size: 1.25rem; /* Larger font size for better visibility */
+    transition: color var(--transition-speed) ease-in-out; /* Smooth color transition on hover */
+  }
+
+  /* Pseudo-element for the underline */
+  .sliding-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Always start at the left edge */
+    width: 100%;
+    height: 2px; /* Thickness of the underline */
+    background-color: #1a73e8; /* Color of the underline */
+
+    /* Default state: scaled to 0 from the right (invisible) */
+    transform: scaleX(0);
+    transform-origin: right;
+    /* Transition for when hover is removed (scaling out) */
+    transition: transform var(--transition-speed) ease-in;
+  }
+
+  /* When hovered:
+     - Scale to 1 from the left (slide in from left)
+     - Change transition for sliding in */
+  .sliding-link:hover::before {
+    transform: scaleX(1); /* Scale to full width */
+    transform-origin: left; /* Scale from the left */
+    /* Transition for when hovered (sliding in) */
+    transition: transform var(--transition-speed) ease-out;
+  }
+
+  /* Optional: Change link color on hover for better feedback */
+  .sliding-link:hover {
+    color: #0d47a1; /* Slightly darker blue on hover */
+  }
+</style>
