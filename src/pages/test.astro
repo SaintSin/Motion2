@@ -1,0 +1,91 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "@layouts/BaseLayout.astro";
+import ParallaxImage from "../components/ParallaxImage.astro";
+const meta = {
+  title: "Welcome to Astro",
+  description: "The metadescription",
+  imageOG: "generic-social-1200x630.png",
+  altOG: "Alt text for OG image",
+};
+import image1 from "@images/panda-01.jpg";
+---
+
+<Layout metaData={meta}>
+  <main class="flow">
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos
+      sequi quia impedit commodi? Deleniti laboriosam temporibus officiis maxime
+      animi, mollitia dolore? Recusandae, saepe consequuntur! Ipsum saepe
+      aliquid deleniti beatae expedita. Lorem ipsum, dolor sit amet consectetur
+      adipisicing elit. Fugit perferendis laborum magni incidunt nam illo atque
+      nobis neque dolores, quas nihil aspernatur. Autem consequuntur distinctio
+      doloribus quis nulla enim hic. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Doloremque eligendi qui cupiditate sint! Accusamus
+      ratione mollitia, impedit ab, neque sint sed similique explicabo doloribus
+      porro iure. Eligendi placeat illo maiores!
+    </p>
+
+    <ParallaxImage />
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos
+      sequi quia impedit commodi? Deleniti laboriosam temporibus officiis maxime
+      animi, mollitia dolore? Recusandae, saepe consequuntur! Ipsum saepe
+      aliquid deleniti beatae expedita. Lorem ipsum, dolor sit amet consectetur
+      adipisicing elit. Fugit perferendis laborum magni incidunt nam illo atque
+      nobis neque dolores, quas nihil aspernatur. Autem consequuntur distinctio
+      doloribus quis nulla enim hic. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Doloremque eligendi qui cupiditate sint! Accusamus
+      ratione mollitia, impedit ab, neque sint sed similique explicabo doloribus
+      porro iure. Eligendi placeat illo maiores!
+    </p>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos
+      sequi quia impedit commodi? Deleniti laboriosam temporibus officiis maxime
+      animi, mollitia dolore? Recusandae, saepe consequuntur! Ipsum saepe
+      aliquid deleniti beatae expedita. Lorem ipsum, dolor sit amet consectetur
+      adipisicing elit. Fugit perferendis laborum magni incidunt nam illo atque
+      nobis neque dolores, quas nihil aspernatur. Autem consequuntur distinctio
+      doloribus quis nulla enim hic. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Doloremque eligendi qui cupiditate sint! Accusamus
+      ratione mollitia, impedit ab, neque sint sed similique explicabo doloribus
+      porro iure. Eligendi placeat illo maiores!
+    </p>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos
+      sequi quia impedit commodi? Deleniti laboriosam temporibus officiis maxime
+      animi, mollitia dolore? Recusandae, saepe consequuntur! Ipsum saepe
+      aliquid deleniti beatae expedita. Lorem ipsum, dolor sit amet consectetur
+      adipisicing elit. Fugit perferendis laborum magni incidunt nam illo atque
+      nobis neque dolores, quas nihil aspernatur. Autem consequuntur distinctio
+      doloribus quis nulla enim hic. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Doloremque eligendi qui cupiditate sint! Accusamus
+      ratione mollitia, impedit ab, neque sint sed similique explicabo doloribus
+      porro iure. Eligendi placeat illo maiores!
+    </p>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos
+      sequi quia impedit commodi? Deleniti laboriosam temporibus officiis maxime
+      animi, mollitia dolore? Recusandae, saepe consequuntur! Ipsum saepe
+      aliquid deleniti beatae expedita. Lorem ipsum, dolor sit amet consectetur
+      adipisicing elit. Fugit perferendis laborum magni incidunt nam illo atque
+      nobis neque dolores, quas nihil aspernatur. Autem consequuntur distinctio
+      doloribus quis nulla enim hic. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Doloremque eligendi qui cupiditate sint! Accusamus
+      ratione mollitia, impedit ab, neque sint sed similique explicabo doloribus
+      porro iure. Eligendi placeat illo maiores!
+    </p>
+  </main>
+</Layout>
+<style>
+  main {
+    max-width: 70ch;
+    margin: auto;
+    p {
+      max-width: 65ch;
+      margin: auto;
+      margin-block-end: 1rem;
+    }
+  }
+</style>
