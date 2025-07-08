@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 
 import Layout from "@layouts/BaseLayout.astro";
+import ParallaxImage from "@components/ParallaxImage.astro";
 
 const meta = {
   title: "Welcome to  an Astro Starter",
@@ -17,7 +18,7 @@ import image1 from "@images/panda-01.jpg";
 
 <Layout metaData={meta}>
   <div class="parallax-container">
-    <div class="parallax-element grida head" data-speed="0.7">
+    <div class="parallax-element grida head" data-speed="0.3">
       <Image src={image1} layout="full-width" quality={40} alt="Lazy Cats" />
       <div>
         <h1 class="animate" id="animated-heading">
@@ -61,6 +62,8 @@ import image1 from "@images/panda-01.jpg";
       mollitia aperiam est autem facere laborum vero fuga dolores illum
       repudiandae esse minus, voluptates quam sint quisquam temporibus eveniet?
     </p>
+    <ParallaxImage />
+
     <p>
       Libero aut magnam laborum assumenda, odio, accusamus vero nisi impedit
       culpa incidunt deserunt, quo dolorem. Soluta accusamus natus, culpa iure
