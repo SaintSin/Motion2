@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 
 import Layout from "@layouts/BaseLayout.astro";
-import ParallaxImage from "@components/ParallaxImage.astro";
 const meta = {
   title: "Welcome to Astro",
   description: "The metadescription",
@@ -10,59 +9,15 @@ const meta = {
   altOG: "Alt text for OG image",
 };
 import image1 from "@images/panda-01.jpg";
+import image9 from "@images/panda-09.jpg";
+import image10 from "@images/panda-10.jpg";
+import image11 from "@images/panda-11.jpg";
+import image12 from "@images/panda-12.jpg";
 ---
 
 <Layout metaData={meta}>
   <main class="flow">
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos
-      sequi quia impedit commodi? Deleniti laboriosam temporibus officiis maxime
-      animi, mollitia dolore? Recusandae, saepe consequuntur! Ipsum saepe
-      aliquid deleniti beatae expedita. Lorem ipsum, dolor sit amet consectetur
-      adipisicing elit. Fugit perferendis laborum magni incidunt nam illo atque
-      nobis neque dolores, quas nihil aspernatur. Autem consequuntur distinctio
-      doloribus quis nulla enim hic. Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Doloremque eligendi qui cupiditate sint! Accusamus
-      ratione mollitia, impedit ab, neque sint sed similique explicabo doloribus
-      porro iure. Eligendi placeat illo maiores!
-    </p>
-    <ParallaxImage />
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos
-      sequi quia impedit commodi? Deleniti laboriosam temporibus officiis maxime
-      animi, mollitia dolore? Recusandae, saepe consequuntur! Ipsum saepe
-      aliquid deleniti beatae expedita. Lorem ipsum, dolor sit amet consectetur
-      adipisicing elit. Fugit perferendis laborum magni incidunt nam illo atque
-      nobis neque dolores, quas nihil aspernatur. Autem consequuntur distinctio
-      doloribus quis nulla enim hic. Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Doloremque eligendi qui cupiditate sint! Accusamus
-      ratione mollitia, impedit ab, neque sint sed similique explicabo doloribus
-      porro iure. Eligendi placeat illo maiores!
-    </p>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos
-      sequi quia impedit commodi? Deleniti laboriosam temporibus officiis maxime
-      animi, mollitia dolore? Recusandae, saepe consequuntur! Ipsum saepe
-      aliquid deleniti beatae expedita. Lorem ipsum, dolor sit amet consectetur
-      adipisicing elit. Fugit perferendis laborum magni incidunt nam illo atque
-      nobis neque dolores, quas nihil aspernatur. Autem consequuntur distinctio
-      doloribus quis nulla enim hic. Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Doloremque eligendi qui cupiditate sint! Accusamus
-      ratione mollitia, impedit ab, neque sint sed similique explicabo doloribus
-      porro iure. Eligendi placeat illo maiores!
-    </p>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos
-      sequi quia impedit commodi? Deleniti laboriosam temporibus officiis maxime
-      animi, mollitia dolore? Recusandae, saepe consequuntur! Ipsum saepe
-      aliquid deleniti beatae expedita. Lorem ipsum, dolor sit amet consectetur
-      adipisicing elit. Fugit perferendis laborum magni incidunt nam illo atque
-      nobis neque dolores, quas nihil aspernatur. Autem consequuntur distinctio
-      doloribus quis nulla enim hic. Lorem ipsum dolor sit amet consectetur
-      adipisicing elit. Doloremque eligendi qui cupiditate sint! Accusamus
-      ratione mollitia, impedit ab, neque sint sed similique explicabo doloribus
-      porro iure. Eligendi placeat illo maiores!
-    </p>
+    <h2>Test Page</h2>
     <p>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos
       sequi quia impedit commodi? Deleniti laboriosam temporibus officiis maxime
@@ -76,6 +31,68 @@ import image1 from "@images/panda-01.jpg";
       porro iure. Eligendi placeat illo maiores!
     </p>
   </main>
+
+  <hr class="halfpage" />
+
+  <section class="grid vcol">
+    <Image src={image9} alt="panda1" />
+    <Image src={image10} alt="panda1" />
+    <Image src={image12} alt="panda1" />
+    <div>
+      <h2>Another Headline</h2>
+      <p>
+        and some Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel
+        sit nostrum hic, ea dolore sint nesciunt, possimus earum molestiae
+        repellendus quisquam minus maiores delectus optio fuga! Ab tempora
+        maxime ex?
+      </p><p>Again!</p>
+    </div>
+  </section>
+
+  <hr class="halfpage" />
+
+  <section class="grid hcol">
+    <Image src={image11} alt="panda1" />
+    <div class="first">
+      <h2>First</h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
+        cupiditate, minima necessitatibus sunt esse accusamus atque amet
+        quaerat, voluptatum nam voluptatibus? Odio suscipit quos doloribus vel
+        minus ut autem perferendis?
+      </p>
+    </div>
+    <div class="second">
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
+        cupiditate, minima necessitatibus sunt esse accusamus atque amet
+        quaerat, voluptatum nam voluptatibus? Odio suscipit quos doloribus vel
+        minus ut autem perferendis?
+      </p>
+    </div>
+    <div class="third">
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
+        cupiditate, minima necessitatibus sunt esse accusamus atque amet
+        quaerat, voluptatum nam voluptatibus? Odio suscipit quos doloribus vel
+        minus ut autem perferendis?
+      </p>
+    </div>
+  </section>
+
+  <hr class="halfpage" />
+
+  <section class="grid glass">
+    <Image src={image1} alt="panda1" />
+    <div>
+      <h1>Headline 1</h1><p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident
+        inventore ducimus tempore, voluptatum harum, quisquam omnis maxime
+        quibusdam aspernatur laborum ut? Animi delectus modi fugiat non quam
+        praesentium consequuntur corporis.
+      </p>
+    </div>
+  </section>
 </Layout>
 <style>
   main {
@@ -85,6 +102,114 @@ import image1 from "@images/panda-01.jpg";
       max-width: 65ch;
       margin: auto;
       margin-block-end: 1rem;
+    }
+  }
+  .halfpage {
+    display: block;
+    height: 0px;
+    margin-block-start: 20vh;
+    margin-block-end: 20vh;
+  }
+  .vcol {
+    padding-inline: 1rem;
+    max-width: 1100px;
+    margin: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      "a b c"
+      "a b c"
+      "a d d";
+  }
+  .vcol {
+    img {
+      height: 100%;
+      object-fit: cover;
+      outline: 1px solid var(--stone-5);
+    }
+    img,
+    div {
+      border-radius: 2rem;
+    }
+    img:nth-child(1) {
+      grid-area: a;
+    }
+    img:nth-child(2) {
+      grid-area: b;
+    }
+    img:nth-child(3) {
+      grid-area: c;
+    }
+    div {
+      grid-area: d;
+      background: var(--stone-9);
+      color: var(--stone-0);
+      padding: 1rem;
+      > * {
+        padding-bottom: 0.75rem;
+      }
+    }
+  }
+
+  .hcol {
+    padding-inline: 1rem;
+    max-width: 1100px;
+    margin: auto;
+    gap: 0.25rem;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+      "a a a"
+      "b c d"
+      "b c d";
+  }
+  .hcol img {
+    grid-column: 1 / -1;
+    grid-row: 1 / -2;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+  .hcol {
+    div {
+      backdrop-filter: blur(20px);
+      background: oklch(0.8735 0 211.13 / 50%);
+      border-radius: 1rem;
+      padding: 1rem;
+      margin: 1rem;
+      outline: 1px solid var(--stone-5);
+      height: auto;
+      margin-block-start: 12rem;
+    }
+    div:nth-child(1) {
+    }
+    .first {
+      grid-area: b;
+    }
+    .second {
+      grid-area: c;
+    }
+    .third {
+      grid-area: d;
+    }
+  }
+  .glass {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    img,
+    div {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    div {
+      backdrop-filter: blur(1px);
+      /* outline: 1px solid red; */
+      background: oklch(0.8735 0 211.13 / 5%);
+      padding: 2rem;
+      margin: 10rem;
+      border-radius: 2rem;
+      box-shadow: 0px 0px 25px 15px rgba(0, 0, 0, 0.25);
+      color: var(--stone-5);
     }
   }
 </style>

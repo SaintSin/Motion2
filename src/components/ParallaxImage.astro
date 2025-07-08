@@ -22,9 +22,9 @@ import image1 from "@images/panda-11.jpg";
   import Lenis from "lenis";
 
   // Global variables
-  let lenis;
-  let rafId;
-  let observer;
+  let lenis: Lenis | null;
+  let rafId: number | null;
+  let observer: IntersectionObserver | null;
   let visibleElements = new Set();
   let isInitialized = false;
 
@@ -40,7 +40,7 @@ import image1 from "@images/panda-11.jpg";
     });
 
     // Animation frame loop
-    function raf(time) {
+    function raf(time: any) {
       lenis.raf(time);
       rafId = requestAnimationFrame(raf);
     }
@@ -156,7 +156,7 @@ import image1 from "@images/panda-11.jpg";
 <style>
   .parallax-container {
     position: relative;
-    height: 300px; /* Adjust as needed */
+    height: 400px; /* Adjust as needed */
     overflow: hidden;
     margin: 2rem 0;
     border-radius: 1rem;
