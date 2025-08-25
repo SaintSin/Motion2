@@ -70,7 +70,7 @@ import image1 from "@images/panda-11.jpg";
       {
         rootMargin: "100px 0px 100px 0px",
         threshold: 0,
-      }
+      },
     );
 
     // Observe all parallax elements
@@ -156,10 +156,10 @@ import image1 from "@images/panda-11.jpg";
 <style>
   .parallax-container {
     position: relative;
-    height: 400px; /* Adjust as needed */
-    overflow: hidden;
     margin: 2rem 0;
     border-radius: 1rem;
+    height: 400px; /* Adjust as needed */
+    overflow: hidden;
   }
 
   .parallax-image-wrapper {
@@ -173,8 +173,8 @@ import image1 from "@images/panda-11.jpg";
     position: absolute;
     top: -75%; /* Start image higher to show bottom 50% initially */
     left: 0;
+    will-change: transform;
     height: 250%;
     object-fit: cover;
-    will-change: transform;
   }
 </style>

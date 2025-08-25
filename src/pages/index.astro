@@ -129,21 +129,21 @@ import Skew from "@components/SkewZoom.astro";
 </Layout>
 <style>
   .link-slide {
+    display: inline-block;
+    position: relative;
+    transition: color 0.3s ease;
     font-size: 3rem;
     text-decoration: none;
-    position: relative;
-    display: inline-block;
-    transition: color 0.3s ease;
   }
   .link-slide::after {
-    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
+    transition: width 0.3s ease;
+    background-color: #007bff;
     width: 0;
     height: 2px;
-    background-color: #007bff;
-    transition: width 0.3s ease;
+    content: "";
   }
   .link-slide:hover::after {
     width: 100%;
@@ -153,25 +153,25 @@ import Skew from "@components/SkewZoom.astro";
   .sliding-link {
     --transition-speed: 0.3s;
     position: relative;
-    text-decoration: none;
-    overflow: hidden;
     transition: color var(--transition-speed) ease-in-out;
+    overflow: hidden;
+    text-decoration: none;
   }
 
   /* Pseudo-element for the underline */
   .sliding-link::before {
-    content: "";
     position: absolute;
     /* Adjusted bottom to position the underline slightly below the text baseline */
     bottom: -3px; /* A small negative value to place it visually below the text */
     left: 0; /* Always start at the left edge */
-    width: 100%;
-    height: 3px; /* Thickness of the underline */
-    background-color: var(--orange-8);
     transform: scaleX(0);
     /* Scale to the right */
     transform-origin: right;
     transition: transform var(--transition-speed) ease-in;
+    background-color: var(--orange-8);
+    width: 100%;
+    height: 3px; /* Thickness of the underline */
+    content: "";
   }
 
   .sliding-link:hover::before {

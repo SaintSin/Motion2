@@ -96,36 +96,36 @@ import image12 from "@images/panda-12.jpg";
 </Layout>
 <style>
   main {
-    max-width: 70ch;
     margin: auto;
+    max-width: 70ch;
     p {
-      max-width: 65ch;
       margin: auto;
       margin-block-end: 1rem;
+      max-width: 65ch;
     }
   }
   .halfpage {
     display: block;
-    height: 0px;
     margin-block-start: 20vh;
     margin-block-end: 20vh;
+    height: 0px;
   }
   .vcol {
-    padding-inline: 1rem;
-    max-width: 1100px;
-    margin: auto;
-    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
       "a b c"
       "a b c"
       "a d d";
+    margin: auto;
+    padding-inline: 1rem;
+    max-width: 1100px;
   }
   .vcol {
     img {
+      outline: 1px solid var(--stone-5);
       height: 100%;
       object-fit: cover;
-      outline: 1px solid var(--stone-5);
     }
     img,
     div {
@@ -143,8 +143,8 @@ import image12 from "@images/panda-12.jpg";
     div {
       grid-area: d;
       background: var(--stone-9);
-      color: var(--stone-0);
       padding: 1rem;
+      color: var(--stone-0);
       > * {
         padding-bottom: 0.75rem;
       }
@@ -152,34 +152,34 @@ import image12 from "@images/panda-12.jpg";
   }
 
   .hcol {
-    padding-inline: 1rem;
-    max-width: 1100px;
-    margin: auto;
-    gap: 0.25rem;
+    grid-template-rows: repeat(3, auto);
 
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, auto);
     grid-template-areas:
       "a a a"
       "b c d"
       "b c d";
+    gap: 0.25rem;
+    margin: auto;
+    padding-inline: 1rem;
+    max-width: 1100px;
   }
   .hcol img {
-    grid-column: 1 / -1;
     grid-row: 1 / -2;
-    object-fit: cover;
+    grid-column: 1 / -1;
     border-radius: 1rem;
+    object-fit: cover;
   }
   .hcol {
     div {
       backdrop-filter: blur(20px);
-      background: oklch(0.8735 0 211.13 / 50%);
-      border-radius: 1rem;
-      padding: 1rem;
       margin: 1rem;
-      outline: 1px solid var(--stone-5);
-      height: auto;
       margin-block-start: 12rem;
+      outline: 1px solid var(--stone-5);
+      border-radius: 1rem;
+      background: oklch(0.8735 0 211.13 / 50%);
+      padding: 1rem;
+      height: auto;
     }
     div:nth-child(1) {
     }
@@ -194,21 +194,21 @@ import image12 from "@images/panda-12.jpg";
     }
   }
   .glass {
-    grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
     img,
     div {
-      grid-column: 1;
       grid-row: 1;
+      grid-column: 1;
     }
     div {
       backdrop-filter: blur(1px);
+      margin: 10rem;
+      box-shadow: 0px 0px 25px 15px rgba(0, 0, 0, 0.25);
+      border-radius: 2rem;
       /* outline: 1px solid red; */
       background: oklch(0.8735 0 211.13 / 5%);
       padding: 2rem;
-      margin: 10rem;
-      border-radius: 2rem;
-      box-shadow: 0px 0px 25px 15px rgba(0, 0, 0, 0.25);
       color: var(--stone-5);
     }
   }

@@ -117,16 +117,16 @@ import image1 from "@images/panda-01.jpg";
   }
 
   main {
-    background: var(--stone-2);
     position: relative;
-    padding: var(--size-4);
-    padding-block-start: var(--size-8);
-    z-index: 2;
-    margin-top: 15px;
-    border: 1px solid var(--stone-1);
-    outline: 15px hsla(37, 18%, 81%, 0.42) solid;
     /* Prevent some wierd shit from Saafari */
     transform: translateZ(0);
+    z-index: 2;
+    margin-top: 15px;
+    outline: 15px hsla(37, 18%, 81%, 0.42) solid;
+    border: 1px solid var(--stone-1);
+    background: var(--stone-2);
+    padding: var(--size-4);
+    padding-block-start: var(--size-8);
     p {
       margin-block-end: var(--size-2);
     }

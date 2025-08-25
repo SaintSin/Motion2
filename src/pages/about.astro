@@ -73,8 +73,8 @@ import image1 from "@images/panda-01.jpg";
 <style>
   * {
     outline: solid 1px red;
-    font-family: var(--font-sans);
     line-height: var(--font-lineheight-3);
+    font-family: var(--font-sans);
   }
 
   :root {
@@ -99,12 +99,12 @@ import image1 from "@images/panda-01.jpg";
   @media (min-width: 600px) {
     .full-width-split-screen {
       display: grid;
+      position: relative;
       grid-template-columns:
         minmax(var(--wrapper-padding-inline), 1fr)
         minmax(0, calc(var(--wrapper-max-width) / 2))
         minmax(0, calc(var(--wrapper-max-width) / 2))
         minmax(var(--wrapper-padding-inline), 1fr);
-      position: relative;
     }
     .full-width-split-screen > img:first-child {
       grid-column: 1 / 3;
@@ -123,10 +123,10 @@ import image1 from "@images/panda-01.jpg";
       grid-column: 3 / 4;
     }
     .full-width-split-screen > :not(img)::before {
-      content: " ";
       position: absolute;
       inset: 0;
       background: inherit;
+      content: " ";
     }
     .full-width-split-screen > :not(img):first-child::before {
       grid-column: 1 / 2;
@@ -139,7 +139,7 @@ import image1 from "@images/panda-01.jpg";
 <script>
   function matchSplitScreenImageHeights(): void {
     const splitScreens = document.querySelectorAll<HTMLElement>(
-      ".full-width-split-screen"
+      ".full-width-split-screen",
     );
 
     splitScreens.forEach((container) => {
@@ -148,7 +148,7 @@ import image1 from "@images/panda-01.jpg";
         container.querySelectorAll<HTMLPictureElement>("picture");
       const nonImageElements = Array.from(container.children).filter(
         (child): child is HTMLElement =>
-          child.tagName !== "IMG" && child.tagName !== "PICTURE"
+          child.tagName !== "IMG" && child.tagName !== "PICTURE",
       );
 
       // Reset any previously set heights
@@ -215,7 +215,7 @@ import image1 from "@images/panda-01.jpg";
   // Debounce function to prevent excessive resize event firing
   function debounce<T extends (...args: any[]) => void>(
     func: T,
-    wait: number
+    wait: number,
   ): (...args: Parameters<T>) => void {
     let timeout: NodeJS.Timeout;
     return (...args: Parameters<T>) => {
@@ -230,7 +230,7 @@ import image1 from "@images/panda-01.jpg";
     if (document.readyState === "loading") {
       document.addEventListener(
         "DOMContentLoaded",
-        matchSplitScreenImageHeights
+        matchSplitScreenImageHeights,
       );
     } else {
       matchSplitScreenImageHeights();
@@ -242,10 +242,10 @@ import image1 from "@images/panda-01.jpg";
 
     // Also run when images load (in case they affect layout)
     const images = document.querySelectorAll<HTMLImageElement>(
-      ".full-width-split-screen img"
+      ".full-width-split-screen img",
     );
     const pictures = document.querySelectorAll<HTMLPictureElement>(
-      ".full-width-split-screen picture"
+      ".full-width-split-screen picture",
     );
 
     images.forEach((img) => {
