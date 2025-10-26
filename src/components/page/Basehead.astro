@@ -1,18 +1,18 @@
 ---
-import { ClientRouter } from "astro:transitions";
-import { Font } from "astro:assets";
-import { Head } from "astro-capo";
+import { ClientRouter } from 'astro:transitions';
+import { Font } from 'astro:assets';
+import { Head } from 'astro-capo';
 
 const { metaData } = Astro.props;
 const {
-  title,
-  description,
-  imageOG = "generic-social-1200x630.png",
-  altOG = "Social Media Card",
+	title,
+	description,
+	imageOG = 'generic-social-1200x630.png',
+	altOG = 'Social Media Card',
 } = metaData;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-import "@styles/style.css";
+import '@styles/style.css';
 ---
 
 <Head>

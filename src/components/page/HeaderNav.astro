@@ -1,16 +1,16 @@
 ---
-import Link from "@components/page/Link.astro";
+import Link from '@components/page/Link.astro';
 // Not using a list, as Google sites don't seem to use it. And being sheep we follow Google
 
 const { pathname } = new URL(Astro.url.pathname, Astro.site);
 const links = [
-  { linkText: "Home", link: "/" },
-  { linkText: "About", link: "/about/" },
-  { linkText: "Hero", link: "/hero/" },
-  { linkText: "Lenis", link: "/lenis/" },
-  { linkText: "Test", link: "/test/" },
+	{ linkText: 'Home', link: '/' },
+	{ linkText: 'About', link: '/about/' },
+	{ linkText: 'Hero', link: '/hero/' },
+	{ linkText: 'Lenis', link: '/lenis/' },
+	{ linkText: 'Test', link: '/test/' },
 
-  { linkText: "Contact", link: "/" },
+	{ linkText: 'Contact', link: '/' },
 ];
 ---
 
