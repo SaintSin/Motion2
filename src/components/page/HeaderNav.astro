@@ -15,29 +15,26 @@ const links = [
 ---
 
 <div class="nav-links">
-  {
-    links.map((link) => (
-      <Link
-        class={pathname == link.link ? "active--exact" : ""}
-        href={link.link}
-      >
-        {link.linkText}
-      </Link>
-    ))
-  }
+	{
+		links.map((link) => (
+			<Link class={pathname == link.link ? 'active--exact' : ''} href={link.link}>
+				{link.linkText}
+			</Link>
+		))
+	}
 </div>
 
 <style>
-  .nav-links {
-    a {
-      margin-inline: var(--size-1);
-      padding: var(--size-1);
-      text-decoration: none;
-    }
-    .active--exact {
-      border-radius: var(--radius-2);
-      background: var(--stone-8);
-      color: var(--stone-1);
-    }
-  }
+	.nav-links {
+		a {
+			margin-inline: var(--size-1);
+			padding: var(--size-1);
+			text-decoration: none;
+		}
+		.active--exact {
+			border-radius: var(--radius-2);
+			background: var(--stone-8);
+			color: var(--stone-1);
+		}
+	}
 </style>

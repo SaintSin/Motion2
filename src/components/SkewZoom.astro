@@ -5,63 +5,63 @@
 <h2 class="animate">Headline for Skewing</h2>
 <div class="skew animate"><h2>Headline</h2></div>
 <style>
-  .animate {
-    max-width: 100vw;
-    overflow-y: hidden;
-  }
+	.animate {
+		max-width: 100vw;
+		overflow-y: hidden;
+	}
 
-  .skew {
-    /* transform: skew(15deg) rotate(15deg); */
-    background: pink;
-    font-size: 4rem;
-  }
-  .skew h2 {
-    transform: skew(15deg) translateX(100vw);
-    transition: all 2s;
-    color: red;
-  }
-  .skew.visible h2 {
-    transform: translateX(0);
-    color: orange;
-  }
+	.skew {
+		/* transform: skew(15deg) rotate(15deg); */
+		background: pink;
+		font-size: 4rem;
+	}
+	.skew h2 {
+		transform: skew(15deg) translateX(100vw);
+		transition: all 2s;
+		color: red;
+	}
+	.skew.visible h2 {
+		transform: translateX(0);
+		color: orange;
+	}
 </style>
 <script>
-  import { inView } from "motion";
-  // Function to initialize motion observers
-  function initMotionObservers() {
-    inView(
-      ".animate",
-      (element, info) => {
-        console.log("Element", element, " has entered the viewport");
-        element.classList.add("visible");
+	import { inView } from 'motion';
+	// Function to initialize motion observers
+	function initMotionObservers() {
+		inView(
+			'.animate',
+			(element, info) => {
+				console.log('Element', element, ' has entered the viewport');
+				element.classList.add('visible');
 
-        return () => {
-          element.classList.remove("visible");
-        };
-      },
-      {
-        // Only trigger once (don't remove class when leaving)
-        // amount: "some", // Trigger when any part is visible
-        margin: "0px", // Trigger 100px before entering viewport
-      },
-    );
-  }
+				return () => {
+					element.classList.remove('visible');
+				};
+			},
+			{
+				// Only trigger once (don't remove class when leaving)
+				// amount: "some", // Trigger when any part is visible
+				margin: '0px', // Trigger 100px before entering viewport
+			}
+		);
+	}
 
-  // Initialize on first load
-  document.addEventListener("DOMContentLoaded", initMotionObservers);
+	// Initialize on first load
+	document.addEventListener('DOMContentLoaded', initMotionObservers);
 
-  // Reinitialize after each Astro view transition
-  document.addEventListener("astro:page-load", initMotionObservers);
+	// Reinitialize after each Astro view transition
+	document.addEventListener('astro:page-load', initMotionObservers);
 
-  // Optional: Clean up before transitions (if needed)
-  document.addEventListener("astro:before-preparation", () => {
-    // Any cleanup logic if needed
-  });
+	// Optional: Clean up before transitions (if needed)
+	document.addEventListener('astro:before-preparation', () => {
+		// Any cleanup logic if needed
+	});
 
-  // Alternative approach: Using astro:after-swap for immediate DOM updates
-  document.addEventListener("astro:after-swap", () => {
-    // This fires immediately after the new page content is swapped in
-    // but before astro:page-load
-    initMotionObservers();
-  });
+	// Alternative approach: Using astro:after-swap for immediate DOM updates
+	document.addEventListener('astro:after-swap', () => {
+		// This fires immediately after the new page content is swapped in
+		// but before astro:page-load
+		initMotionObservers();
+	});
 </script>

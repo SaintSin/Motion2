@@ -10,9 +10,9 @@ const { href, class: classList, isExternal, rel = '' } = Astro.props;
 ---
 
 <a
-  href={href}
-  class:list={[classList]}
-  rel={`${rel}${isExternal ? " nofollow noopener noreferrer external" : ""}`}
+	href={href}
+	class:list={[classList]}
+	rel={`${rel}${isExternal ? ' nofollow noopener noreferrer external' : ''}`}
 >
-  <slot />
+	<slot />
 </a>

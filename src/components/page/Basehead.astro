@@ -16,28 +16,25 @@ import '@styles/style.css';
 ---
 
 <Head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <title>{metaData.title}</title>
-  <link rel="canonical" href={canonicalURL} />
-  <meta name="description" content={description} />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={Astro.site + "images/social/" + imageOG} />
-  <meta property="og:image:alt" content={altOG} />
-  <meta
-    property="og:logo"
-    content={Astro.site + "images/social/social-logo-1200px.png"}
-  />
-  <meta name="generator" content={Astro.generator} />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" href="/favicon.ico" sizes="32x32" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
-  <Font cssVariable="--font-roboto" preload />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>{metaData.title}</title>
+	<link rel="canonical" href={canonicalURL} />
+	<meta name="description" content={description} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={canonicalURL} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={Astro.site + 'images/social/' + imageOG} />
+	<meta property="og:image:alt" content={altOG} />
+	<meta property="og:logo" content={Astro.site + 'images/social/social-logo-1200px.png'} />
+	<meta name="generator" content={Astro.generator} />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="icon" href="/favicon.ico" sizes="32x32" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	<link rel="manifest" href="/manifest.webmanifest" />
+	<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+	<Font cssVariable="--font-roboto" preload />
 
-  <ClientRouter />
+	<ClientRouter />
 </Head>

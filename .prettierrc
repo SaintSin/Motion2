@@ -1,19 +1,19 @@
 {
-  "plugins": ["prettier-plugin-astro", "prettier-plugin-css-order"],
-  "useTabs": true,
-  "singleQuote": true,
-  "semi": true,
-  "printWidth": 100,
-  "trailingComma": "es5",
-  "bracketSpacing": true,
-  "arrowParens": "always",
-  "overrides": [
-    {
-      "files": "*.astro",
-      "options": {
-        "parser": "astro"
-      }
-    }
-  ],
-  "cssDeclarationSorterOrder": "concentric-css"
+	"plugins": ["prettier-plugin-astro", "prettier-plugin-css-order"],
+	"useTabs": true,
+	"singleQuote": true,
+	"semi": true,
+	"printWidth": 100,
+	"trailingComma": "es5",
+	"bracketSpacing": true,
+	"arrowParens": "always",
+	"overrides": [
+		{
+			"files": "*.astro",
+			"options": {
+				"parser": "astro"
+			}
+		}
+	],
+	"cssDeclarationSorterOrder": "concentric-css"
 }

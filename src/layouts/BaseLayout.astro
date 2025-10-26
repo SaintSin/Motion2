@@ -7,17 +7,17 @@ const { metaData } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <Basehead metaData={metaData} />
-  <body>
-    <Header />
-    <div class="content">
-      <slot />
-    </div>
-    <Footer />
-  </body>
+	<Basehead metaData={metaData} />
+	<body>
+		<Header />
+		<div class="content">
+			<slot />
+		</div>
+		<Footer />
+	</body>
 </html>
 <style>
-  .content {
-    padding-top: 6rem;
-  }
+	.content {
+		padding-top: 6rem;
+	}
 </style>
