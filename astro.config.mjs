@@ -1,9 +1,8 @@
 // @ts-check
-import { defineConfig, fontProviders } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
-
 import playformCompress from '@playform/compress';
+import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({

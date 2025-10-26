@@ -1,9 +1,8 @@
 ---
 import { Image, Picture } from 'astro:assets';
-
+import image1 from '@images/panda-01.jpg';
 import Layout from '@layouts/BaseLayout.astro';
 
-import image1 from '@images/panda-01.jpg';
 const meta = {
 	title: 'Welcome to  an Astro Starter',
 	description: 'The metadescription',
@@ -11,9 +10,9 @@ const meta = {
 	altOG: 'Alt text for OG image',
 };
 
-import TextA from '@components/Text.astro';
 import Rule1 from '@components/Rule1.astro';
 import Skew from '@components/SkewZoom.astro';
+import TextA from '@components/Text.astro';
 ---
 
 <Layout metaData={meta}>
